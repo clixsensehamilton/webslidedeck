@@ -3,8 +3,8 @@ week: 2
 day: 6
 weekday: Monday
 chapter: Chapter 1 — The World Has Changed
-source_video: Video 2: Fundamentals of Data Science
-post_title: The Stack Unpacked: How AI, ML, and Deep Learning Relate
+source_video: "Video 2: Fundamentals of Data Science"
+post_title: "The Stack Unpacked: How AI, ML, and Deep Learning Relate"
 series_tag: "#AIMLSeries #Module1"
 ---
 

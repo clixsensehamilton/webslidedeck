@@ -3,8 +3,8 @@ week: 11
 day: 52
 weekday: Tuesday
 chapter: Chapter 5 — AI in the Wild
-source_video: Video 11: How AI Revolutionises Industries
-post_title: NLP and Computer Vision: How Machines Read, See, and Listen
+source_video: "Video 11: How AI Revolutionises Industries"
+post_title: "NLP and Computer Vision: How Machines Read, See, and Listen"
 series_tag: "#AIMLSeries #Module1"
 ---
 

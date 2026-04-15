@@ -3,8 +3,8 @@ week: 9
 day: 43
 weekday: Wednesday
 chapter: Chapter 4 — When Machines Fail
-source_video: Video 9: Challenges of ML — Part I
-post_title: Bias and Representation: Who Gets Left Out of the Training Set?
+source_video: "Video 9: Challenges of ML — Part I"
+post_title: "Bias and Representation: Who Gets Left Out of the Training Set?"
 series_tag: "#AIMLSeries #Module1"
 ---
 

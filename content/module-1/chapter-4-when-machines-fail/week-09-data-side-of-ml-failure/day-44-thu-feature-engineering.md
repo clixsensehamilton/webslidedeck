@@ -3,8 +3,8 @@ week: 9
 day: 44
 weekday: Thursday
 chapter: Chapter 4 — When Machines Fail
-source_video: Video 9: Challenges of ML — Part I
-post_title: Feature Engineering: The First Tool You Reach for When Data Is the Problem
+source_video: "Video 9: Challenges of ML — Part I"
+post_title: "Feature Engineering: The First Tool You Reach for When Data Is the Problem"
 series_tag: "#AIMLSeries #Module1"
 ---
 

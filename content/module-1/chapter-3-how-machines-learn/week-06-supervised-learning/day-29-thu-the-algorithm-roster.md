@@ -3,7 +3,7 @@ week: 6
 day: 29
 weekday: Thursday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 6: Supervised Learning
+source_video: "Video 6: Supervised Learning"
 post_title: "The Algorithm Roster: Linear Models, Decision Trees, and Gradient Boosting"
 series_tag: "#AIMLSeries #Module1"
 ---

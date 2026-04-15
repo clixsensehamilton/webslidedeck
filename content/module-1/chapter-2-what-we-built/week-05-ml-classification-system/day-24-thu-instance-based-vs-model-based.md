@@ -3,7 +3,7 @@ week: 5
 day: 24
 weekday: Thursday
 chapter: Chapter 2 — What We Built
-source_video: Video 5: Types of ML Systems
+source_video: "Video 5: Types of ML Systems"
 post_title: "Instance-Based vs. Model-Based: Two Ways Machines Generalise"
 series_tag: "#AIMLSeries #Module1"
 ---

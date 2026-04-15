@@ -3,8 +3,8 @@ week: 2
 day: 7
 weekday: Tuesday
 chapter: Chapter 1 — The World Has Changed
-source_video: Video 2: Fundamentals of Data Science
-post_title: Same Stack, Different Jobs: What AI, ML, and DL Are Actually Doing
+source_video: "Video 2: Fundamentals of Data Science"
+post_title: "Same Stack, Different Jobs: What AI, ML, and DL Are Actually Doing"
 series_tag: "#AIMLSeries #Module1"
 ---
 

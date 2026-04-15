@@ -3,7 +3,7 @@ week: 10
 day: 49
 weekday: Thursday
 chapter: Chapter 4 — When Machines Fail
-source_video: Video 10: Challenges of ML — Part II
+source_video: "Video 10: Challenges of ML — Part II"
 post_title: Validation Sets, Cross-Validation, and Hyperparameter Tuning
 series_tag: "#AIMLSeries #Module1"
 ---

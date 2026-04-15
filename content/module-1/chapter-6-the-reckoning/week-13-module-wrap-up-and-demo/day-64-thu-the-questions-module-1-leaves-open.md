@@ -3,7 +3,7 @@ week: 13
 day: 64
 weekday: Thursday
 chapter: Chapter 6 — The Reckoning
-source_video: Video 13: Module Summary
+source_video: "Video 13: Module Summary"
 post_title: The Questions Module 1 Leaves Open — and Why That's Intentional
 series_tag: "#AIMLSeries #Module1"
 ---

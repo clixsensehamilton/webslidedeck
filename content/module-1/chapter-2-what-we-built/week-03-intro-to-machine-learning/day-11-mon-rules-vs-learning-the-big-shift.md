@@ -3,8 +3,8 @@ week: 3
 day: 11
 weekday: Monday
 chapter: Chapter 2 — What We Built
-source_video: Video 4: Introduction to Machine Learning
-post_title: Rules vs. Learning: The Big Shift
+source_video: "Video 4: Introduction to Machine Learning"
+post_title: "Rules vs. Learning: The Big Shift"
 series_tag: "#AIMLSeries #Module1"
 ---
 

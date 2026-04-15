@@ -3,7 +3,7 @@ week: 13
 day: 61
 weekday: Monday
 chapter: Chapter 6 — The Reckoning
-source_video: Video 13: Module Summary
+source_video: "Video 13: Module Summary"
 post_title: "From Buzzword to Blueprint: The Full Picture After Module 1"
 series_tag: "#AIMLSeries #Module1"
 ---

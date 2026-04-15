@@ -3,8 +3,8 @@ week: 11
 day: 53
 weekday: Wednesday
 chapter: Chapter 5 — AI in the Wild
-source_video: Video 11: How AI Revolutionises Industries
-post_title: AI in the Pipes: How Automation and Analytics Are Changing IT Infrastructure
+source_video: "Video 11: How AI Revolutionises Industries"
+post_title: "AI in the Pipes: How Automation and Analytics Are Changing IT Infrastructure"
 series_tag: "#AIMLSeries #Module1"
 ---
 

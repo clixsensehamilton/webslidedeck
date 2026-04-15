@@ -3,7 +3,7 @@ week: 5
 day: 25
 weekday: Friday
 chapter: Chapter 2 — What We Built
-source_video: Video 5: Types of ML Systems
+source_video: "Video 5: Types of ML Systems"
 post_title: "What This Means for IT: Picking the Right ML Architecture for the Problem"
 series_tag: "#AIMLSeries #Module1"
 ---

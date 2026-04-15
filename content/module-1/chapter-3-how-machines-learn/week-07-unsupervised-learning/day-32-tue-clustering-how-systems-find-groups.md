@@ -3,7 +3,7 @@ week: 7
 day: 32
 weekday: Tuesday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 7: Unsupervised Learning
+source_video: "Video 7: Unsupervised Learning"
 post_title: "Clustering: How Systems Find Groups Nobody Told Them Existed"
 series_tag: "#AIMLSeries #Module1"
 ---

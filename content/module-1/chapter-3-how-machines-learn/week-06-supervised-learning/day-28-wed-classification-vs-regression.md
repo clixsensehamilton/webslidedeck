@@ -3,7 +3,7 @@ week: 6
 day: 28
 weekday: Wednesday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 6: Supervised Learning
+source_video: "Video 6: Supervised Learning"
 post_title: "Classification vs. Regression: Two Flavors of Supervised Learning"
 series_tag: "#AIMLSeries #Module1"
 ---

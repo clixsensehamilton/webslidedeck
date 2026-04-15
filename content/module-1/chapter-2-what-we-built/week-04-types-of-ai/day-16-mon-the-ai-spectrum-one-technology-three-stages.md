@@ -3,7 +3,7 @@ week: 4
 day: 16
 weekday: Monday
 chapter: Chapter 2 — What We Built
-source_video: Video 3: Types of AI
+source_video: "Video 3: Types of AI"
 post_title: "The AI Spectrum: One Technology, Three Stages"
 series_tag: "#AIMLSeries #Module1"
 ---

@@ -3,7 +3,7 @@ week: 1
 day: 3
 weekday: Wednesday
 chapter: Chapter 1 — The World Has Changed
-source_video: Video 2: Fundamentals of Data Science
+source_video: "Video 2: Fundamentals of Data Science"
 post_title: The Three Ingredients AI Runs On — and Why IT Touches All of Them
 series_tag: "#AIMLSeries #Module1"
 ---

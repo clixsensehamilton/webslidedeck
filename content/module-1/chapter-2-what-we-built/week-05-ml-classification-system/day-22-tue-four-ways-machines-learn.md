@@ -3,7 +3,7 @@ week: 5
 day: 22
 weekday: Tuesday
 chapter: Chapter 2 — What We Built
-source_video: Video 5: Types of ML Systems
+source_video: "Video 5: Types of ML Systems"
 post_title: Four Ways Machines Learn — and When to Use Each One
 series_tag: "#AIMLSeries #Module1"
 ---

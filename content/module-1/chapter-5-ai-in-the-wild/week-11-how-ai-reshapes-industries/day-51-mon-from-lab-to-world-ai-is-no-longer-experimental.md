@@ -3,8 +3,8 @@ week: 11
 day: 51
 weekday: Monday
 chapter: Chapter 5 — AI in the Wild
-source_video: Video 11: How AI Revolutionises Industries
-post_title: From Lab to World: AI Is No Longer Experimental
+source_video: "Video 11: How AI Revolutionises Industries"
+post_title: "From Lab to World: AI Is No Longer Experimental"
 series_tag: "#AIMLSeries #Module1"
 ---
 

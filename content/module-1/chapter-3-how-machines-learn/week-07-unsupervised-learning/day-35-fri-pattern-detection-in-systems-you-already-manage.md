@@ -3,7 +3,7 @@ week: 7
 day: 35
 weekday: Friday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 7: Unsupervised Learning
+source_video: "Video 7: Unsupervised Learning"
 post_title: "What This Means for IT: Pattern Detection in Systems You Already Manage"
 series_tag: "#AIMLSeries #Module1"
 ---

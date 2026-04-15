@@ -3,7 +3,7 @@ week: 11
 day: 55
 weekday: Friday
 chapter: Chapter 5 — AI in the Wild
-source_video: Video 11: How AI Revolutionises Industries
+source_video: "Video 11: How AI Revolutionises Industries"
 post_title: "What This Means for IT: The Business Cases You'll Be Asked to Support"
 series_tag: "#AIMLSeries #Module1"
 ---

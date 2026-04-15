@@ -3,8 +3,8 @@ week: 13
 day: 62
 weekday: Tuesday
 chapter: Chapter 6 — The Reckoning
-source_video: Videos 14.1/15: Demo — Real Estate Delinquency Prediction
-post_title: The Full ML Pipeline: EDA, Preprocessing, Training, and Evaluation
+source_video: "Videos 14.1/15: Demo — Real Estate Delinquency Prediction"
+post_title: "The Full ML Pipeline: EDA, Preprocessing, Training, and Evaluation"
 series_tag: "#AIMLSeries #Module1"
 ---
 

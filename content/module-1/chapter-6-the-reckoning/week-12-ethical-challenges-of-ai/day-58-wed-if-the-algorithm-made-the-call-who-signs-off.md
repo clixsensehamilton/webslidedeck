@@ -3,7 +3,7 @@ week: 12
 day: 58
 weekday: Wednesday
 chapter: Chapter 6 — The Reckoning
-source_video: Video 12: Ethical Challenges of AI
+source_video: "Video 12: Ethical Challenges of AI"
 post_title: If the Algorithm Made the Call, Who Signs Off on It?
 series_tag: "#AIMLSeries #Module1"
 ---

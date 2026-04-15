@@ -3,7 +3,7 @@ week: 13
 day: 65
 weekday: Friday
 chapter: Chapter 6 — The Reckoning
-source_video: Video 13: Module Summary
+source_video: "Video 13: Module Summary"
 post_title: "Module 1 Final: What You Can Now Ask — and Answer — About Any AI System"
 series_tag: "#AIMLSeries #Module1"
 ---

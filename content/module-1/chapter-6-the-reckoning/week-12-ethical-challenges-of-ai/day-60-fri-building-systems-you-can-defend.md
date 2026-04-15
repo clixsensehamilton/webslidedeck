@@ -3,7 +3,7 @@ week: 12
 day: 60
 weekday: Friday
 chapter: Chapter 6 — The Reckoning
-source_video: Video 12: Ethical Challenges of AI
+source_video: "Video 12: Ethical Challenges of AI"
 post_title: "What This Means for IT: Building Systems You Can Defend"
 series_tag: "#AIMLSeries #Module1"
 ---

@@ -3,8 +3,8 @@ week: 10
 day: 46
 weekday: Monday
 chapter: Chapter 4 — When Machines Fail
-source_video: Video 10: Challenges of ML — Part II
-post_title: The Other Kind of Failure: When the Data Is Fine but the Model Isn't
+source_video: "Video 10: Challenges of ML — Part II"
+post_title: "The Other Kind of Failure: When the Data Is Fine but the Model Isn't"
 series_tag: "#AIMLSeries #Module1"
 ---
 

@@ -3,7 +3,7 @@ week: 7
 day: 31
 weekday: Monday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 7: Unsupervised Learning
+source_video: "Video 7: Unsupervised Learning"
 post_title: "No Labels, No Problem — What Unsupervised Learning Actually Does"
 series_tag: "#AIMLSeries #Module1"
 ---

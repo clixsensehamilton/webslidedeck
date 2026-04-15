@@ -3,7 +3,7 @@ week: 8
 day: 37
 weekday: Tuesday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 8: Semi-supervised and Reinforcement Learning
+source_video: "Video 8: Semi-supervised and Reinforcement Learning"
 post_title: "When 10% of Your Data Has to Do the Work of 100%"
 series_tag: "#AIMLSeries #Module1"
 ---

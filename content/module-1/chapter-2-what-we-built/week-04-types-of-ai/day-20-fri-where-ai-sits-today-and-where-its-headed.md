@@ -3,7 +3,7 @@ week: 4
 day: 20
 weekday: Friday
 chapter: Chapter 2 — What We Built
-source_video: Video 3: Types of AI
+source_video: "Video 3: Types of AI"
 post_title: "What This Means for IT: Where AI Sits Today — and Where It's Headed"
 series_tag: "#AIMLSeries #Module1"
 ---

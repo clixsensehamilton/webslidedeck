@@ -3,7 +3,7 @@ week: 9
 day: 45
 weekday: Friday
 chapter: Chapter 4 — When Machines Fail
-source_video: Video 9: Challenges of ML — Part I
+source_video: "Video 9: Challenges of ML — Part I"
 post_title: "What This Means for IT: Your Data Pipeline Shapes What the Model Knows"
 series_tag: "#AIMLSeries #Module1"
 ---

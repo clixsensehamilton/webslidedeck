@@ -3,7 +3,7 @@ week: 7
 day: 34
 weekday: Thursday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 7: Unsupervised Learning
+source_video: "Video 7: Unsupervised Learning"
 post_title: "Anomaly Detection: The Same Math That Catches Network Intruders"
 series_tag: "#AIMLSeries #Module1"
 ---

@@ -3,7 +3,7 @@ week: 4
 day: 18
 weekday: Wednesday
 chapter: Chapter 2 — What We Built
-source_video: Video 3: Types of AI
+source_video: "Video 3: Types of AI"
 post_title: "AGI — The AI We're Still Building Toward"
 series_tag: "#AIMLSeries #Module1"
 ---

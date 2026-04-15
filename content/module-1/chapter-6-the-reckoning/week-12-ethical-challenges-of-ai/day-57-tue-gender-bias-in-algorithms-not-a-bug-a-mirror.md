@@ -3,8 +3,8 @@ week: 12
 day: 57
 weekday: Tuesday
 chapter: Chapter 6 — The Reckoning
-source_video: Video 12: Ethical Challenges of AI
-post_title: Gender Bias in Algorithms: Not a Bug, a Mirror
+source_video: "Video 12: Ethical Challenges of AI"
+post_title: "Gender Bias in Algorithms: Not a Bug, a Mirror"
 series_tag: "#AIMLSeries #Module1"
 ---
 

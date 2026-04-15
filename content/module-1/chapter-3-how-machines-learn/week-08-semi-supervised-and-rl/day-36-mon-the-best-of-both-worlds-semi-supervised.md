@@ -3,7 +3,7 @@ week: 8
 day: 36
 weekday: Monday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 8: Semi-supervised and Reinforcement Learning
+source_video: "Video 8: Semi-supervised and Reinforcement Learning"
 post_title: "The Best of Both Worlds: Semi-Supervised Learning"
 series_tag: "#AIMLSeries #Module1"
 ---

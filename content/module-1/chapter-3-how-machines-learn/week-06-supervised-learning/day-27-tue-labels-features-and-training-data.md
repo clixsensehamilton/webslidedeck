@@ -3,7 +3,7 @@ week: 6
 day: 27
 weekday: Tuesday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 6: Supervised Learning
+source_video: "Video 6: Supervised Learning"
 post_title: "Labels, Features, and Training Data — What Each One Does"
 series_tag: "#AIMLSeries #Module1"
 ---

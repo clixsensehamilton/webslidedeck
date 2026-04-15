@@ -3,7 +3,7 @@ week: 9
 day: 42
 weekday: Tuesday
 chapter: Chapter 4 — When Machines Fail
-source_video: Video 9: Challenges of ML — Part I
+source_video: "Video 9: Challenges of ML — Part I"
 post_title: Garbage In, Garbage Out — Data Quantity, Quality, and Sampling Bias
 series_tag: "#AIMLSeries #Module1"
 ---

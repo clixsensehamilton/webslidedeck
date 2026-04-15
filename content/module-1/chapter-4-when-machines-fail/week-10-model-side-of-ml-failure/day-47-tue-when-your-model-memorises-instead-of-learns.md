@@ -3,7 +3,7 @@ week: 10
 day: 47
 weekday: Tuesday
 chapter: Chapter 4 — When Machines Fail
-source_video: Video 10: Challenges of ML — Part II
+source_video: "Video 10: Challenges of ML — Part II"
 post_title: When Your Model Memorises Instead of Learns — and When It's Too Dumb to Try
 series_tag: "#AIMLSeries #Module1"
 ---

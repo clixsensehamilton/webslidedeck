@@ -3,7 +3,7 @@ week: 8
 day: 40
 weekday: Friday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 8: Semi-supervised and Reinforcement Learning
+source_video: "Video 8: Semi-supervised and Reinforcement Learning"
 post_title: "What This Means for IT: Systems That Improve Without Being Reprogrammed"
 series_tag: "#AIMLSeries #Module1"
 ---

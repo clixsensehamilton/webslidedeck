@@ -3,7 +3,7 @@ week: 6
 day: 26
 weekday: Monday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 6: Supervised Learning
+source_video: "Video 6: Supervised Learning"
 post_title: "Supervised Learning: The Model That Needs Labelled Input to Work"
 series_tag: "#AIMLSeries #Module1"
 ---

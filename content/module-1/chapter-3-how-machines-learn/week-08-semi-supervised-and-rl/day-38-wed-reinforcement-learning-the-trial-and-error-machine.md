@@ -3,7 +3,7 @@ week: 8
 day: 38
 weekday: Wednesday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 8: Semi-supervised and Reinforcement Learning
+source_video: "Video 8: Semi-supervised and Reinforcement Learning"
 post_title: "Reinforcement Learning — The Trial and Error Machine"
 series_tag: "#AIMLSeries #Module1"
 ---

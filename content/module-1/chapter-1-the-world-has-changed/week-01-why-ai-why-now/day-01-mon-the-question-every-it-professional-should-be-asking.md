@@ -3,7 +3,7 @@ week: 1
 day: 1
 weekday: Monday
 chapter: Chapter 1 — The World Has Changed
-source_video: Video 1: Module Overview
+source_video: "Video 1: Module Overview"
 post_title: The Question Every IT Professional Should Be Asking
 series_tag: "#AIMLSeries #Module1"
 ---

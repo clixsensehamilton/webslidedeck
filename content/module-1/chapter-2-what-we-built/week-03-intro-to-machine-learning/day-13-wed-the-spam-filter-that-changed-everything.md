@@ -3,7 +3,7 @@ week: 3
 day: 13
 weekday: Wednesday
 chapter: Chapter 2 — What We Built
-source_video: Video 4: Introduction to Machine Learning
+source_video: "Video 4: Introduction to Machine Learning"
 post_title: The Spam Filter That Changed Everything
 series_tag: "#AIMLSeries #Module1"
 ---

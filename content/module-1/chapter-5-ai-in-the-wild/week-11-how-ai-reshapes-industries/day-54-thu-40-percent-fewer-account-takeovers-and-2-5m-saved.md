@@ -3,7 +3,7 @@ week: 11
 day: 54
 weekday: Thursday
 chapter: Chapter 5 — AI in the Wild
-source_video: Video 11: How AI Revolutionises Industries
+source_video: "Video 11: How AI Revolutionises Industries"
 post_title: 40% Fewer Account Takeovers and $2.5M Saved — What the Models Were Actually Doing
 series_tag: "#AIMLSeries #Module1"
 ---

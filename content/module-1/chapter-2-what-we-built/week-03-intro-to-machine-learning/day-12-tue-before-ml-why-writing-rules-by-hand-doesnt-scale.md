@@ -3,8 +3,8 @@ week: 3
 day: 12
 weekday: Tuesday
 chapter: Chapter 2 — What We Built
-source_video: Video 4: Introduction to Machine Learning
-post_title: Before ML: Why Writing Rules by Hand Doesn't Scale
+source_video: "Video 4: Introduction to Machine Learning"
+post_title: "Before ML: Why Writing Rules by Hand Doesn't Scale"
 series_tag: "#AIMLSeries #Module1"
 ---
 

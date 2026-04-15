@@ -3,7 +3,7 @@ week: 5
 day: 21
 weekday: Monday
 chapter: Chapter 2 — What We Built
-source_video: Video 5: Types of ML Systems
+source_video: "Video 5: Types of ML Systems"
 post_title: "The ML Marketplace: Three Ways to Classify Machine Learning Systems"
 series_tag: "#AIMLSeries #Module1"
 ---

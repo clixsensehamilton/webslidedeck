@@ -3,7 +3,7 @@ week: 4
 day: 17
 weekday: Tuesday
 chapter: Chapter 2 — What We Built
-source_video: Video 3: Types of AI
+source_video: "Video 3: Types of AI"
 post_title: ANI — The AI Running Your Tools Right Now
 series_tag: "#AIMLSeries #Module1"
 ---

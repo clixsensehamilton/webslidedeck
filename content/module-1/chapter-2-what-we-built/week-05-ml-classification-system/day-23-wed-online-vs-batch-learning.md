@@ -3,7 +3,7 @@ week: 5
 day: 23
 weekday: Wednesday
 chapter: Chapter 2 — What We Built
-source_video: Video 5: Types of ML Systems
+source_video: "Video 5: Types of ML Systems"
 post_title: "Online vs. Batch Learning: How Models Stay Current"
 series_tag: "#AIMLSeries #Module1"
 ---

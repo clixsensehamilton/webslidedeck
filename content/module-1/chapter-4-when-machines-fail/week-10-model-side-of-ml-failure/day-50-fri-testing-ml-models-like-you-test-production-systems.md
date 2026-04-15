@@ -3,7 +3,7 @@ week: 10
 day: 50
 weekday: Friday
 chapter: Chapter 4 — When Machines Fail
-source_video: Video 10: Challenges of ML — Part II
+source_video: "Video 10: Challenges of ML — Part II"
 post_title: "What This Means for IT: Testing ML Models Like You Test Production Systems"
 series_tag: "#AIMLSeries #Module1"
 ---

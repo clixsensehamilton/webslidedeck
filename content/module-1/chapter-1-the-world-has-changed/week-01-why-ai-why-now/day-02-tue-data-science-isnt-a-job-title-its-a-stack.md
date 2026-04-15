@@ -3,7 +3,7 @@ week: 1
 day: 2
 weekday: Tuesday
 chapter: Chapter 1 — The World Has Changed
-source_video: Video 2: Fundamentals of Data Science
+source_video: "Video 2: Fundamentals of Data Science"
 post_title: Data Science Isn't a Job Title — It's a Stack
 series_tag: "#AIMLSeries #Module1"
 ---

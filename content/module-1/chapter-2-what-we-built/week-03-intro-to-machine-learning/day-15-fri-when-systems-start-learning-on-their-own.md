@@ -3,7 +3,7 @@ week: 3
 day: 15
 weekday: Friday
 chapter: Chapter 2 — What We Built
-source_video: Video 4: Introduction to Machine Learning
+source_video: "Video 4: Introduction to Machine Learning"
 post_title: "What This Means for IT: When Systems Start Learning on Their Own"
 series_tag: "#AIMLSeries #Module1"
 ---

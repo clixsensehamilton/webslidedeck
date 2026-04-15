@@ -3,7 +3,7 @@ week: 6
 day: 30
 weekday: Friday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 6: Supervised Learning
+source_video: "Video 6: Supervised Learning"
 post_title: "What This Means for IT: How Supervised Learning Powers Filters, Flags, and Scores in Your Stack"
 series_tag: "#AIMLSeries #Module1"
 ---

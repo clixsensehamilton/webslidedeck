@@ -3,8 +3,8 @@ week: 12
 day: 56
 weekday: Monday
 chapter: Chapter 6 — The Reckoning
-source_video: Video 12: Ethical Challenges of AI
-post_title: The Other Side of the Wins: What AI Gets Wrong
+source_video: "Video 12: Ethical Challenges of AI"
+post_title: "The Other Side of the Wins: What AI Gets Wrong"
 series_tag: "#AIMLSeries #Module1"
 ---
 

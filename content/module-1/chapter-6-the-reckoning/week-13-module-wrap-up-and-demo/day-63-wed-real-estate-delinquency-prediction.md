@@ -3,8 +3,8 @@ week: 13
 day: 63
 weekday: Wednesday
 chapter: Chapter 6 — The Reckoning
-source_video: Videos 14.1/15: Demo — Real Estate Delinquency Prediction
-post_title: Real Estate Delinquency Prediction: Walking Through a Real ML Project
+source_video: "Videos 14.1/15: Demo — Real Estate Delinquency Prediction"
+post_title: "Real Estate Delinquency Prediction: Walking Through a Real ML Project"
 series_tag: "#AIMLSeries #Module1"
 ---
 

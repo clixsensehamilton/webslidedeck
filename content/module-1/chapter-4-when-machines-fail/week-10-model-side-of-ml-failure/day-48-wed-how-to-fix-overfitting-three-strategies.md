@@ -3,7 +3,7 @@ week: 10
 day: 48
 weekday: Wednesday
 chapter: Chapter 4 — When Machines Fail
-source_video: Video 10: Challenges of ML — Part II
+source_video: "Video 10: Challenges of ML — Part II"
 post_title: "How to Fix Overfitting: Three Strategies That Actually Work"
 series_tag: "#AIMLSeries #Module1"
 ---

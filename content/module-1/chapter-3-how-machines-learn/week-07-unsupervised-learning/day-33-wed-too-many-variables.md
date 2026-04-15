@@ -3,7 +3,7 @@ week: 7
 day: 33
 weekday: Wednesday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 7: Unsupervised Learning
+source_video: "Video 7: Unsupervised Learning"
 post_title: "Too Many Variables? How ML Finds the Ones That Actually Matter"
 series_tag: "#AIMLSeries #Module1"
 ---

@@ -3,8 +3,8 @@ week: 9
 day: 41
 weekday: Monday
 chapter: Chapter 4 — When Machines Fail
-source_video: Video 9: Challenges of ML — Part I
-post_title: The Other Side of AlphaGo: Why ML Fails in the Real World
+source_video: "Video 9: Challenges of ML — Part I"
+post_title: "The Other Side of AlphaGo: Why ML Fails in the Real World"
 series_tag: "#AIMLSeries #Module1"
 ---
 

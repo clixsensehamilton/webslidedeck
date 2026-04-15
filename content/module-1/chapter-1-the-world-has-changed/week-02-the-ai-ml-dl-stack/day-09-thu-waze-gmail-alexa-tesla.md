@@ -3,8 +3,8 @@ week: 2
 day: 9
 weekday: Thursday
 chapter: Chapter 1 — The World Has Changed
-source_video: Video 2: Fundamentals of Data Science
-post_title: Waze, Gmail, Alexa, Tesla: AI/ML/DL in the Wild
+source_video: "Video 2: Fundamentals of Data Science"
+post_title: "Waze, Gmail, Alexa, Tesla: AI/ML/DL in the Wild"
 series_tag: "#AIMLSeries #Module1"
 ---
 

@@ -3,8 +3,8 @@ week: 2
 day: 8
 weekday: Wednesday
 chapter: Chapter 1 — The World Has Changed
-source_video: Video 2: Fundamentals of Data Science
-post_title: Deep Learning: The Neural Network at the Heart of Modern AI
+source_video: "Video 2: Fundamentals of Data Science"
+post_title: "Deep Learning: The Neural Network at the Heart of Modern AI"
 series_tag: "#AIMLSeries #Module1"
 ---
 

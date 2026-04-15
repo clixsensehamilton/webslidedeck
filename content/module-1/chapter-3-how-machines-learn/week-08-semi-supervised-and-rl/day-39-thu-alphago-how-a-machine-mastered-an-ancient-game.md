@@ -3,7 +3,7 @@ week: 8
 day: 39
 weekday: Thursday
 chapter: Chapter 3 — How Machines Learn
-source_video: Video 8: Semi-supervised and Reinforcement Learning
+source_video: "Video 8: Semi-supervised and Reinforcement Learning"
 post_title: "AlphaGo: How a Machine Mastered an Ancient Game"
 series_tag: "#AIMLSeries #Module1"
 ---

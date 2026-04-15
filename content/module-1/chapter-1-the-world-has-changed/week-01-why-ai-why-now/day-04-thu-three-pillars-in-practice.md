@@ -3,8 +3,8 @@ week: 1
 day: 4
 weekday: Thursday
 chapter: Chapter 1 — The World Has Changed
-source_video: Video 2: Fundamentals of Data Science
-post_title: The Three Pillars in Practice: Domain, Code, and Math
+source_video: "Video 2: Fundamentals of Data Science"
+post_title: "The Three Pillars in Practice: Domain, Code, and Math"
 series_tag: "#AIMLSeries #Module1"
 ---
 

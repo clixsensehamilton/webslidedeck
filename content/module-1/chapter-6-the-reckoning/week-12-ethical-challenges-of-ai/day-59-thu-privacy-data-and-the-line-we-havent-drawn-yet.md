@@ -3,7 +3,7 @@ week: 12
 day: 59
 weekday: Thursday
 chapter: Chapter 6 — The Reckoning
-source_video: Video 12: Ethical Challenges of AI
+source_video: "Video 12: Ethical Challenges of AI"
 post_title: Privacy, Data, and the Line We Haven't Drawn Yet
 series_tag: "#AIMLSeries #Module1"
 ---
