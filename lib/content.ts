@@ -2,9 +2,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import remarkHtml from 'remark-html'
-import { isPostAvailable, getPostDate, formatPostDate } from './scheduling'
+import { isPostAvailable, formatPostDate } from './scheduling'
 
 const CONTENT_ROOT = path.join(process.cwd(), 'content/module-1')
 
