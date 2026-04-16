@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import type { Post } from '@/lib/content'
 
@@ -15,9 +15,16 @@ export default function ChapterNav({ posts, chapterNumber }: Props) {
   const [cursor, setCursor] = useState(0)
   const [input, setInput] = useState('')
 
+  const containerRef = useRef<HTMLDivElement>(null)
+
   const navigate = useCallback((post: Post) => {
     router.push(`/series/chapter-${chapterNumber}/${post.slug}`)
   }, [router, chapterNumber])
+
+  // Grab focus on mount so keyboard works immediately without a click
+  useEffect(() => {
+    containerRef.current?.focus()
+  }, [])
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -56,7 +63,7 @@ export default function ChapterNav({ posts, chapterNumber }: Props) {
   }, [available, cursor, input, navigate])
 
   return (
-    <div className="font-mono">
+    <div ref={containerRef} tabIndex={-1} className="font-mono outline-none">
       {posts.map((post) => {
         const availIdx = available.indexOf(post)
         const isSelected = post.available && availIdx === cursor
