@@ -53,7 +53,7 @@ export default function TerminalTakeaway({ takeaway, dayNumber, releaseDate, tot
 
         <div className="term-dim">{border}</div>
         <div className="term-bright text-center font-bold py-2 text-lg tracking-widest">
-          EXEC SUMMARY — session complete
+          SESSION SUMMARY
         </div>
         <div className="term-dim">{border}</div>
 

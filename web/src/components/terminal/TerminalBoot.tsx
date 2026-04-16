@@ -12,14 +12,13 @@ interface BootProps {
 }
 
 const BOOT_LINES = [
-  { text: 'AIML Series v1.0 — Module 1 Boot Sequence', type: 'bright', delay: 0 },
-  { text: '═'.repeat(50), type: 'dim', delay: 0.3 },
+  { text: 'AIML-OS v1.0.0', type: 'bright', delay: 0 },
+  { text: '═'.repeat(44), type: 'dim', delay: 0.3 },
   { text: '', type: 'dim', delay: 0.4 },
-  { text: '[  OK  ] Initialising content engine...', type: 'green', delay: 0.6 },
-  { text: '[  OK  ] Loading chapter metadata...', type: 'green', delay: 1.0 },
-  { text: '[  OK  ] Verifying IT context...', type: 'green', delay: 1.4 },
-  { text: '[  OK  ] Mounting scene data...', type: 'green', delay: 1.8 },
-  { text: '', type: 'dim', delay: 2.1 },
+  { text: '[  OK  ] content ready', type: 'green', delay: 0.6 },
+  { text: '[  OK  ] chapter index loaded', type: 'green', delay: 1.0 },
+  { text: '[  OK  ] scene data mounted', type: 'green', delay: 1.4 },
+  { text: '', type: 'dim', delay: 1.6 },
 ]
 
 export default function TerminalBoot({ postTitle, chapter, releaseDate, dayNumber, hook, onComplete }: BootProps) {

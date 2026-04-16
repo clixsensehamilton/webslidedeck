@@ -16,13 +16,12 @@ const LOGO = [
 // ── Boot sequence ──────────────────────────────────────────────
 const BOOT_LINES = [
   { text: 'AIML-OS v1.0.0 (build 2026.04.14)', ms: 0 },
-  { text: 'Copyright (c) 2026 IT Professional Series. All rights reserved.', ms: 120 },
   { text: '', ms: 80 },
   { text: 'Mounting content filesystem...            [ OK ]', ms: 200 },
   { text: 'Loading module registry (module-1)...     [ OK ]', ms: 180 },
   { text: 'Indexing 65 posts across 6 chapters...    [ OK ]', ms: 180 },
   { text: 'Verifying schedule integrity...           [ OK ]', ms: 160 },
-  { text: 'Spawning interactive shell...             [ OK ]', ms: 160 },
+  { text: 'Ready.', ms: 160 },
   { text: '', ms: 100 },
 ]
 
@@ -146,10 +145,6 @@ function getResponse(cmd: string): { lines: Line[]; action?: string } {
       lines: [
         { text: '' },
         { text: '  logout', cls: 'term-dim' },
-        { text: '' },
-        { text: '  Session saved. Come back when you\'re ready.', cls: 'term-amber' },
-        { text: '' },
-        { text: "  (Type 'start' to change your mind.)", cls: 'term-dim' },
         { text: '' },
       ],
     }
@@ -340,7 +335,6 @@ export default function TerminalLanding() {
           <div className="mt-3 mb-4 space-y-0">
             <div className="term-dim">{'─'.repeat(52)}</div>
             <div className="mt-2 mb-1">
-              <span className="term-cyan">  Welcome.</span>
               <span className="term-dim"> Session started {new Date().toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}.</span>
             </div>
             <div className="term-dim">
