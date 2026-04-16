@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getChapterPosts } from '@/lib/content'
-import PostCard from '@/components/series/PostCard'
+import ChapterNav from '@/components/series/ChapterNav'
 
 const CHAPTER_TITLES = [
   'The World Has Changed',
@@ -52,15 +52,7 @@ export default async function ChapterPage({ params }: { params: Promise<{ chapte
         <div className="term-dim mb-2">{'─'.repeat(48)}</div>
 
         {/* post list */}
-        <div>
-          {posts.map(post => (
-            <PostCard
-              key={post.slug}
-              post={post}
-              chapterNumber={chapterNumber}
-            />
-          ))}
-        </div>
+        <ChapterNav posts={posts} chapterNumber={chapterNumber} />
 
         <div className="term-dim mt-2">{'─'.repeat(48)}</div>
       </div>
