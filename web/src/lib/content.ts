@@ -166,3 +166,22 @@ function findChapterDir(chapterNumber: number): string | null {
   const match = dirs.find(d => d.startsWith(`chapter-${chapterNumber}-`))
   return match ? path.join(CONTENT_ROOT, match) : null
 }
+
+/**
+ * Get a single post by chapter number + slug
+ * Returns null if not found
+ */
+export async function getPost(chapterNumber: number, slug: string): Promise<Post | null> {
+  const chapterDir = findChapterDir(chapterNumber)
+  if (!chapterDir) return null
+
+  const weekDirs = fs.readdirSync(chapterDir).sort()
+  for (const weekDir of weekDirs) {
+    const weekPath = path.join(chapterDir, weekDir)
+    if (!fs.statSync(weekPath).isDirectory()) continue
+    const files = fs.readdirSync(weekPath).filter(f => f.endsWith('.md'))
+    const match = files.find(f => path.basename(f, '.md') === slug)
+    if (match) return parsePostFile(path.join(weekPath, match))
+  }
+  return null
+}
