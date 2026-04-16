@@ -57,7 +57,6 @@ export default async function ChapterPage({ params }: { params: Promise<{ chapte
 
       <ChapterDetailClient
         posts={posts}
-        chapterTitle={chapterTitle}
         chapterNumber={chapterNumber}
       />
     </main>
