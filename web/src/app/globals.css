@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #080c10;
+  --accent-cyan: #00d4ff;
+  --accent-purple: #7c3aed;
+  --text-primary: #f0f4f8;
+  --text-muted: #64748b;
+  --locked-bg: #1e2530;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent-cyan); border-radius: 2px; }
+
+/* ── Terminal theme ─────────────────────────────── */
+:root {
+  --term-bg: #0a0a0a;
+  --term-green: #00ff41;
+  --term-cyan: #00f5ff;
+  --term-amber: #ff6b35;
+  --term-dim: #2a2a2a;
+  --term-muted: #4a4a4a;
+  --term-glow-green: 0 0 8px #00ff41, 0 0 16px rgba(0,255,65,0.3);
+  --term-glow-cyan: 0 0 8px #00f5ff, 0 0 16px rgba(0,245,255,0.3);
+  --term-glow-amber: 0 0 8px #ff6b35, 0 0 16px rgba(255,107,53,0.3);
+}
+
+.terminal-root {
+  background: var(--term-bg);
+  font-family: var(--font-geist-mono), 'Courier New', monospace;
+  color: var(--term-green);
+  position: relative;
+  overflow: hidden;
+}
+
+/* CRT scanlines overlay — very subtle so text stays readable */
+.terminal-root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.06) 3px,
+    rgba(0, 0, 0, 0.06) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* CRT vignette */
+.terminal-root::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.term-green  { color: var(--term-green); }
+.term-cyan   { color: var(--term-cyan); }
+.term-amber  { color: var(--term-amber); }
+.term-dim    { color: var(--term-muted); }
+.term-bright { color: #ffffff; }
+
+/* Glow only on special elements, not body text */
+.term-glow-green { text-shadow: var(--term-glow-green); }
+.term-glow-cyan  { text-shadow: var(--term-glow-cyan); }
+.term-glow-amber { text-shadow: var(--term-glow-amber); }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor { animation: blink 1s step-end infinite; }
+
+@keyframes scanline-sweep {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+.scanline-sweep {
+  position: absolute;
+  left: 0; right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, rgba(0,255,65,0.04), transparent);
+  animation: scanline-sweep 4s linear infinite;
+  pointer-events: none;
+}

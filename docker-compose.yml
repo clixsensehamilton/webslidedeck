@@ -2,9 +2,13 @@ version: '3.8'
 
 services:
   web:
-    build: .
+    build:
+      context: web
+      dockerfile: Dockerfile
+      # content/ is copied into the build context before build
     ports:
       - "3000:3000"
     restart: unless-stopped
     environment:
       - NODE_ENV=production
+      - CONTENT_ROOT=/app/content

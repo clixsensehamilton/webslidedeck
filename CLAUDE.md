@@ -1,115 +1,164 @@
-# CLAUDE.md — AI/ML Infographic Series Project
+# CLAUDE.md — AI/ML Series Project
 
-This file is the primary context document for Claude Code sessions on this project. Read this first, then read the linked docs as needed.
+Primary context for Claude Code sessions. Read this first.
 
 ---
 
 ## What This Project Is
 
-A **daily scrollytelling infographic web app** for an AI and Machine Learning educational series. Content is posted one day at a time to a custom-built website for an IT professional audience at a company.
+A **daily terminal-style scrollytelling web app** for an AI and Machine Learning educational series. Content is posted one weekday at a time. The UI is a full interactive terminal experience — not a traditional website.
 
 - **65 posts** across **Module 1** (13 weeks, 6 chapters)
-- Posts unlock daily — future posts are soft-gated (visually locked, "Coming [date]")
-- Built as a scrollytelling experience: each post expands inline with GSAP scroll-driven animations
-- Content is original — based on source lecture materials but never copied/paraphrased
-
-**See:** [`docs/PROJECT-OVERVIEW.md`](docs/PROJECT-OVERVIEW.md)
-
----
-
-## Current State (as of 2026-04-15)
-
-| Phase | Status |
-|-------|--------|
-| Content planning (topic lineup) | ✅ Complete — V3 approved |
-| Script generation (65 posts) | ✅ Complete — all scripts written |
-| Web app design | 🔄 In progress — brainstorming complete, awaiting writing-plans |
-| Web app implementation | ❌ Not started |
-| Deployment | ❌ Not started |
-
-**Scripts location:** `content/module-1/` — 65 `.md` files organized by chapter and week
-**Design docs:** `docs/plans/` — lineup V1/V2/V3, content inventory
-**Web app design:** `docs/ARCHITECTURE.md` — full web app spec (approved by user)
-
----
-
-## Tech Stack (Decided)
-
-| Layer | Choice | Reason |
-|-------|--------|--------|
-| Framework | Next.js 15 App Router | SSR + static, best for soft-gating |
-| Animation | GSAP + ScrollTrigger | Industry standard for scroll-driven reveal |
-| 3D Hero | React Three Fiber (Three.js) | Seedance-style particle + neural network hero |
-| Styling | Tailwind CSS v4 | Utility-first, fast |
-| Markdown | gray-matter + remark | Frontmatter parsing + body rendering |
-| Deployment | Vercel (cloud) + Docker (local network) | Dual deployment target |
+- Posts unlock daily — future posts are soft-gated by date
+- Landing page: interactive terminal (`TerminalLanding`) — user types commands to navigate
+- Post view: terminal boot sequence + scroll-driven scene panels (`TerminalPost`)
+- Built for IT professionals — the terminal aesthetic is intentional
 
 ---
 
 ## Repository Structure
 
 ```
-webslidedeck/
-├── CLAUDE.md                          ← You are here
-├── Resources/
-│   └── Module 1/                      ← Source PDFs (transcripts, deck, study material)
-├── content/
+aim_repo/
+├── CLAUDE.md                        ← You are here
+├── docker-compose.yml               ← Builds from web/, mounts content/
+│
+├── web/                             ← Next.js app (all app code lives here)
+│   ├── src/
+│   │   ├── app/                     ← Next.js App Router pages
+│   │   │   ├── layout.tsx           ← Root layout (no providers needed)
+│   │   │   ├── page.tsx             ← Landing → TerminalLanding
+│   │   │   ├── globals.css          ← Terminal CSS tokens + scanlines
+│   │   │   ├── not-found.tsx        ← 404 page
+│   │   │   ├── demo/page.tsx        ← Dev preview of day-1 terminal post
+│   │   │   └── series/
+│   │   │       ├── page.tsx         ← Chapter listing
+│   │   │       └── [chapter]/
+│   │   │           ├── page.tsx     ← Chapter detail (server component)
+│   │   │           └── ChapterDetailClient.tsx
+│   │   ├── components/
+│   │   │   ├── terminal/            ← All terminal UI components
+│   │   │   │   ├── TerminalLanding.tsx   ← Interactive terminal landing
+│   │   │   │   ├── TerminalPost.tsx      ← Full post experience wrapper
+│   │   │   │   ├── TerminalBoot.tsx      ← Boot sequence animation
+│   │   │   │   ├── TerminalScene.tsx     ← Individual scene panel
+│   │   │   │   └── TerminalTakeaway.tsx  ← Session summary / closing
+│   │   │   └── series/
+│   │   │       └── PostCard.tsx          ← Post list item (chapter view)
+│   │   ├── lib/
+│   │   │   ├── content.ts           ← Markdown parser (reads from content/)
+│   │   │   └── scheduling.ts        ← Post availability by date
+│   │   └── config/
+│   │       └── series.ts            ← Series start date, total posts
+│   ├── public/
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── next.config.ts               ← standalone output for Docker
+│   └── tsconfig.json                ← @/* → src/*
+│
+├── content/                         ← Markdown source files (never in web/)
 │   └── module-1/
-│       ├── SCRIPT-TEMPLATE.md         ← Template for all post scripts
+│       ├── SCRIPT-TEMPLATE.md
 │       ├── chapter-1-the-world-has-changed/
-│       │   ├── week-01-why-ai-why-now/
-│       │   │   ├── day-01-mon-*.md
-│       │   │   └── ... (5 files)
-│       │   └── week-02-the-ai-ml-dl-stack/
-│       ├── chapter-2-what-we-built/
-│       ├── chapter-3-how-machines-learn/
-│       ├── chapter-4-when-machines-fail/
-│       ├── chapter-5-ai-in-the-wild/
-│       └── chapter-6-the-reckoning/
-├── docs/
-│   ├── PROJECT-OVERVIEW.md            ← Audience, goals, tone
-│   ├── ARCHITECTURE.md                ← Full web app design spec
-│   ├── CONTENT-GUIDELINES.md          ← Writing rules, governance
+│       │   ├── week-01-why-ai-why-now/      (5 posts)
+│       │   └── week-02-the-ai-ml-dl-stack/  (5 posts)
+│       └── chapter-[2-6]-*/
+│
+├── docs/                            ← Project documentation
+│   ├── ARCHITECTURE.md              ← Current tech design
+│   ├── PROJECT-OVERVIEW.md          ← Audience, goals, tone
+│   ├── CONTENT-GUIDELINES.md        ← Writing rules
 │   └── plans/
-│       ├── 2026-04-14-module1-topic-lineup-v1.md
-│       ├── 2026-04-14-module1-topic-lineup-v2.md
-│       ├── 2026-04-14-module1-topic-lineup-v3.md  ← APPROVED lineup
-│       └── module1-content-inventory.md           ← Full transcript + deck text
-└── [web app files — not yet created]
+│       ├── 2026-04-14-module1-topic-lineup-v3.md   ← APPROVED lineup
+│       └── module1-content-inventory.md             ← Full content index
+│
+└── resources/                       ← Source PDFs (reference only)
+    └── Module 1/
 ```
 
 ---
 
-## Key Decisions Log
+## Current State (as of 2026-04-15)
+
+| Area | Status |
+|------|--------|
+| Content (65 posts) | ✅ Complete |
+| Terminal landing page | ✅ Working — interactive CLI with commands |
+| Terminal post view | ✅ Working — boot + scenes + takeaway |
+| Chapter/series pages | 🔄 Old design — need terminal treatment |
+| Progress/save system | ❌ Not started — Bomber Man code idea |
+| Deployment | ❌ Not started |
+
+---
+
+## Tech Stack
+
+| Layer | Choice |
+|-------|--------|
+| Framework | Next.js 15 App Router |
+| Styling | Tailwind CSS v4 + terminal CSS tokens |
+| Animation | GSAP + IntersectionObserver |
+| Markdown | gray-matter + remark |
+| Fonts | Geist + Geist Mono |
+| Deployment | Docker (standalone) + Vercel |
+
+---
+
+## Terminal Design System
+
+All terminal styles are in `web/src/app/globals.css`:
+
+| Token | Value | Use |
+|-------|-------|-----|
+| `--term-bg` | `#0a0a0a` | Background |
+| `--term-green` | `#00ff41` | Primary text, output |
+| `--term-cyan` | `#00f5ff` | Commands, highlights |
+| `--term-amber` | `#ff6b35` | Warnings, stats, day numbers |
+| `--term-muted` | `#4a4a4a` | Dim/secondary text |
+
+CSS classes: `.term-green`, `.term-cyan`, `.term-amber`, `.term-dim`, `.term-bright`
+Glow classes (use sparingly): `.term-glow-green`, `.term-glow-cyan`, `.term-glow-amber`
+CRT overlay: `.terminal-root::before` (scanlines), `.terminal-root::after` (vignette)
+Cursor: `.cursor` (CSS blink animation on `▋`)
+
+---
+
+## Key Decisions
 
 | Decision | Choice | Reason |
 |----------|--------|--------|
-| Content chunking | Topic-per-week (B) + narrative energy (C) hybrid | Sustainable + engaging |
-| Series arc | 6 chapters, 13 weeks, 65 posts | Maps to Module 1 source videos exactly |
-| Audience tone | Confident, technical-adjacent, IT-specific framing | IT pros know buzzwords, not mechanics |
-| Recap days | "What This Means for IT" Fridays | Generic summaries waste Friday on IT audience |
-| Week 3/4 order | ML Intro (Wk3) before Types of AI (Wk4) | Must understand learning before the AI spectrum |
-| Challenges coverage | 2 weeks (Wk9 data, Wk10 model) | Videos 9–10 cover 11 distinct concepts |
-| Web app routing | Chapter-per-route (`/series/chapter-[n]`) | GSAP performance, clean URLs |
-| Scheduling | Soft-gate client-side, 404 on direct URL to locked content | No server needed, simple deployment |
-| 3D hero style | Particle field → neural network emergence (A+B combo) | Seedance-style, topic-relevant |
-| Deployment | Vercel + Docker (local network) | Cloud + internal network dual target |
+| UI style | Interactive terminal (not infographic) | IT audience, unique, memorable |
+| Landing | CLI with real commands (start/help/chapters/about) | Users type to navigate, not scroll |
+| Post view | Boot sequence → scenes stream in on scroll | Cinematic, feels like running a real tool |
+| Content path | `../content/` relative to `web/` | Clean separation, env var override for Docker |
+| Routing | `/series/chapter-[1-6]` | Standard Next.js dynamic segment |
+| Scheduling | `isPostAvailable()` — DEV MODE = always true | Restore for production |
+| Progress | Bomber Man-style session codes | No auth, no DB — simple and clever |
+
+---
+
+## Running Locally
+
+```bash
+cd web
+npm install
+npm run dev       # starts on :3000
+```
+
+Routes:
+- `/`              → Interactive terminal landing
+- `/series`        → Chapter listing
+- `/series/chapter-1` → Chapter 1 posts
+- `/demo`          → Day-1 post terminal preview (dev only)
 
 ---
 
 ## What To Do Next
 
-The brainstorming session is complete. The next step is:
-
-1. **Run the `writing-plans` skill** to create a detailed implementation plan for the web app
-2. Then implement: Next.js app → content parser → routing → GSAP animations → 3D hero → Docker
-
-**When resuming, read:**
-- This file (CLAUDE.md) — current state
-- `docs/ARCHITECTURE.md` — full web app design
-- `docs/CONTENT-GUIDELINES.md` — content rules
-- `docs/plans/2026-04-14-module1-topic-lineup-v3.md` — approved post lineup
-- `content/module-1/SCRIPT-TEMPLATE.md` — script format
+1. **Apply terminal style to `/series` and `/series/chapter-[n]` pages** — replace the old card UI with terminal-rendered chapter/post listings
+2. **Build progress/save system** — Bomber Man session code generator
+3. **Restore date-gating** — flip `isPostAvailable` back to real date check for production
+4. **Deploy** — Docker build from `web/`, mount `content/`
 
 ---
 
