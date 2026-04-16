@@ -41,7 +41,10 @@ export default function TerminalScene({ scene, sceneNumber, chapterSlug, isActiv
     }
 
     run()
-    return () => { cancelled = true }
+    return () => {
+      cancelled = true
+      hasRun.current = false // reset so Strict Mode remount can re-run
+    }
   }, [isActive, command])
 
   return (

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 
 interface Chapter {
@@ -21,52 +21,38 @@ export default function SeriesNav({ chapters }: Props) {
   const [cursor, setCursor] = useState(0)
   const [input, setInput] = useState('')
 
-  const navigate = useCallback((chapter: Chapter) => {
-    router.push(`/series/chapter-${chapter.number}`)
-  }, [router])
+  useEffect(() => { containerRef.current?.focus() }, [])
 
-  // Grab focus on mount so keyboard works immediately
-  useEffect(() => {
-    containerRef.current?.focus()
-  }, [])
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return
-
-      if (e.key === 'ArrowDown' || e.key === 'j') {
-        e.preventDefault()
-        setCursor(c => Math.min(c + 1, available.length - 1))
+  function onKey(e: React.KeyboardEvent) {
+    if (e.key === 'ArrowDown' || e.key === 'j') {
+      e.preventDefault()
+      setCursor(c => Math.min(c + 1, available.length - 1))
+      setInput('')
+    } else if (e.key === 'ArrowUp' || e.key === 'k') {
+      e.preventDefault()
+      setCursor(c => Math.max(c - 1, 0))
+      setInput('')
+    } else if (e.key === 'Enter') {
+      e.preventDefault()
+      if (input) {
+        const num = parseInt(input)
+        const match = available.find(c => c.number === num)
+        if (match) router.push(`/series/chapter-${match.number}`)
         setInput('')
-      } else if (e.key === 'ArrowUp' || e.key === 'k') {
-        e.preventDefault()
-        setCursor(c => Math.max(c - 1, 0))
-        setInput('')
-      } else if (e.key === 'Enter') {
-        e.preventDefault()
-        if (input) {
-          const num = parseInt(input)
-          const match = available.find(c => c.number === num)
-          if (match) navigate(match)
-          setInput('')
-        } else {
-          if (available[cursor]) navigate(available[cursor])
-        }
-      } else if (e.key === 'Backspace') {
-        setInput(i => i.slice(0, -1))
-      } else if (/^\d$/.test(e.key)) {
-        setInput(i => (i + e.key).slice(-1)) // single digit for chapters 1-6
-      } else if (e.key === 'Escape') {
-        setInput('')
+      } else if (available[cursor]) {
+        router.push(`/series/chapter-${available[cursor].number}`)
       }
+    } else if (e.key === 'Backspace') {
+      setInput(i => i.slice(0, -1))
+    } else if (/^\d$/.test(e.key)) {
+      setInput(i => (i + e.key).slice(-1))
+    } else if (e.key === 'Escape') {
+      setInput('')
     }
-
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [available, cursor, input, navigate])
+  }
 
   return (
-    <div ref={containerRef} tabIndex={-1} className="font-mono outline-none">
+    <div ref={containerRef} tabIndex={-1} className="font-mono outline-none" onKeyDown={onKey}>
       {chapters.map((chapter) => {
         const availIdx = available.indexOf(chapter)
         const isLocked = chapter.availablePosts === 0
@@ -98,7 +84,7 @@ export default function SeriesNav({ chapters }: Props) {
             className={`flex items-start gap-4 py-2 cursor-pointer transition-colors px-2 -mx-2 ${
               isSelected ? 'bg-[#0a1a0a]' : 'hover:bg-[#0f1f0f]'
             }`}
-            onClick={() => navigate(chapter)}
+            onClick={() => router.push(`/series/chapter-${chapter.number}`)}
             onMouseEnter={() => setCursor(availIdx)}
           >
             <span className={`w-4 inline-block term-cyan shrink-0 ${isSelected ? 'opacity-100' : 'opacity-0'}`}>▶</span>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import type { Post } from '@/lib/content'
 
@@ -14,56 +14,40 @@ export default function ChapterNav({ posts, chapterNumber }: Props) {
   const available = posts.filter(p => p.available)
   const [cursor, setCursor] = useState(0)
   const [input, setInput] = useState('')
-
   const containerRef = useRef<HTMLDivElement>(null)
 
-  const navigate = useCallback((post: Post) => {
-    router.push(`/series/chapter-${chapterNumber}/${post.slug}`)
-  }, [router, chapterNumber])
+  useEffect(() => { containerRef.current?.focus() }, [])
 
-  // Grab focus on mount so keyboard works immediately without a click
-  useEffect(() => {
-    containerRef.current?.focus()
-  }, [])
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      // ignore if user is typing in an actual input
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return
-
-      if (e.key === 'ArrowDown' || e.key === 'j') {
-        e.preventDefault()
-        setCursor(c => Math.min(c + 1, available.length - 1))
+  function onKey(e: React.KeyboardEvent) {
+    if (e.key === 'ArrowDown' || e.key === 'j') {
+      e.preventDefault()
+      setCursor(c => Math.min(c + 1, available.length - 1))
+      setInput('')
+    } else if (e.key === 'ArrowUp' || e.key === 'k') {
+      e.preventDefault()
+      setCursor(c => Math.max(c - 1, 0))
+      setInput('')
+    } else if (e.key === 'Enter') {
+      e.preventDefault()
+      if (input) {
+        const day = parseInt(input)
+        const match = available.find(p => p.frontmatter.day === day)
+        if (match) router.push(`/series/chapter-${chapterNumber}/${match.slug}`)
         setInput('')
-      } else if (e.key === 'ArrowUp' || e.key === 'k') {
-        e.preventDefault()
-        setCursor(c => Math.max(c - 1, 0))
-        setInput('')
-      } else if (e.key === 'Enter') {
-        e.preventDefault()
-        if (input) {
-          const day = parseInt(input)
-          const match = available.find(p => p.frontmatter.day === day)
-          if (match) navigate(match)
-          setInput('')
-        } else {
-          navigate(available[cursor])
-        }
-      } else if (e.key === 'Backspace') {
-        setInput(i => i.slice(0, -1))
-      } else if (/^\d$/.test(e.key)) {
-        setInput(i => (i + e.key).slice(-3))
-      } else if (e.key === 'Escape') {
-        setInput('')
+      } else if (available[cursor]) {
+        router.push(`/series/chapter-${chapterNumber}/${available[cursor].slug}`)
       }
+    } else if (e.key === 'Backspace') {
+      setInput(i => i.slice(0, -1))
+    } else if (/^\d$/.test(e.key)) {
+      setInput(i => (i + e.key).slice(-3))
+    } else if (e.key === 'Escape') {
+      setInput('')
     }
-
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [available, cursor, input, navigate])
+  }
 
   return (
-    <div ref={containerRef} tabIndex={-1} className="font-mono outline-none">
+    <div ref={containerRef} tabIndex={-1} className="font-mono outline-none" onKeyDown={onKey}>
       {posts.map((post) => {
         const availIdx = available.indexOf(post)
         const isSelected = post.available && availIdx === cursor
@@ -89,7 +73,7 @@ export default function ChapterNav({ posts, chapterNumber }: Props) {
                 ? 'border-[var(--term-cyan)] bg-[#0a1a0a]'
                 : 'border-[var(--term-muted)] hover:border-[var(--term-cyan)]'
             }`}
-            onClick={() => navigate(post)}
+            onClick={() => router.push(`/series/chapter-${chapterNumber}/${post.slug}`)}
             onMouseEnter={() => setCursor(availIdx)}
           >
             <span className="term-dim flex items-center">

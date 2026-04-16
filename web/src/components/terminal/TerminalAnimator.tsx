@@ -112,7 +112,10 @@ export default function TerminalAnimator({ lines, isActive, onDone }: Props) {
     }
 
     run()
-    return () => { cancelled = true }
+    return () => {
+      cancelled = true
+      hasRun.current = false // reset so Strict Mode remount can re-run
+    }
   }, [isActive, lines, onDone])
 
   return (
