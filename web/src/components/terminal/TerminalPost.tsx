@@ -51,9 +51,7 @@ export default function TerminalPost({
     }
   }
 
-  function handleBootComplete() {
-    setActiveIndex(0)
-  }
+  const handleBootComplete = useCallback(() => setActiveIndex(0), [])
 
   return (
     <div className="terminal-root">
@@ -73,7 +71,7 @@ export default function TerminalPost({
           key={i}
           index={i}
           refs={sectionRefs}
-          onVisible={() => setActiveIndex(i)}
+          onVisible={() => setActiveIndex(prev => Math.max(prev, i))}
         >
           <TerminalScene
             scene={scene}
@@ -117,6 +115,8 @@ function SceneObserver({
   children: React.ReactNode
 }) {
   const divRef = useRef<HTMLDivElement>(null)
+  const onVisibleRef = useRef(onVisible)
+  onVisibleRef.current = onVisible
 
   useEffect(() => {
     const el = divRef.current
@@ -125,14 +125,12 @@ function SceneObserver({
     refs.current[index] = el
 
     const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) onVisible()
-      },
+      ([entry]) => { if (entry.isIntersecting) onVisibleRef.current() },
       { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
     )
     obs.observe(el)
     return () => obs.disconnect()
-  }, [index, refs, onVisible])
+  }, [index, refs]) // onVisible intentionally excluded — accessed via ref
 
   return <div ref={divRef}>{children}</div>
 }
