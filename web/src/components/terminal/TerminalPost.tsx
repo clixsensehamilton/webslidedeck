@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import TerminalBoot from './TerminalBoot'
 import TerminalScene from './TerminalScene'
 import TerminalTakeaway from './TerminalTakeaway'
+import type { NextPostRef } from '@/lib/content'
 
 interface Scene {
   title: string
@@ -19,11 +20,12 @@ interface Props {
   scenes: Scene[]
   takeaway: string
   chapterSlug: string
+  nextPost?: NextPostRef
 }
 
 export default function TerminalPost({
   postTitle, chapter, releaseDate, dayNumber,
-  hook, scenes, takeaway, chapterSlug,
+  hook, scenes, takeaway, chapterSlug, nextPost,
 }: Props) {
   const [activeIndex, setActiveIndex] = useState(-1) // -1 = boot not done
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -89,6 +91,8 @@ export default function TerminalPost({
           dayNumber={dayNumber}
           releaseDate={releaseDate}
           totalDays={65}
+          nextPost={nextPost}
+          chapterSlug={chapterSlug}
         />
       </div>
 

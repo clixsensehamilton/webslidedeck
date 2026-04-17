@@ -1,15 +1,19 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import type { NextPostRef } from '@/lib/content'
 
 interface Props {
   takeaway: string
   dayNumber: number
   releaseDate: string
   totalDays: number
+  nextPost?: NextPostRef
+  chapterSlug?: string
 }
 
-export default function TerminalTakeaway({ takeaway, dayNumber, releaseDate, totalDays }: Props) {
+export default function TerminalTakeaway({ takeaway, dayNumber, releaseDate, totalDays, nextPost, chapterSlug }: Props) {
   const [phase, setPhase] = useState<'idle'|'typing'|'done'>('idle')
   const [text, setText] = useState('')
   const ref = useRef<HTMLDivElement>(null)
@@ -70,11 +74,22 @@ export default function TerminalTakeaway({ takeaway, dayNumber, releaseDate, tot
             <span className="term-dim">[LOGGED] </span>
             <span className="term-green">{releaseDate} · Day {dayNumber} of {totalDays}</span>
           </div>
-          {dayNumber < totalDays && (
+          {nextPost && (
             <div>
               <span className="term-dim">[NEXT]   </span>
-              <span className="term-amber">Day {dayNumber + 1} unlocks tomorrow</span>
-              <span className="cursor term-amber ml-1">▋</span>
+              <Link
+                href={`/series/chapter-${nextPost.chapterNumber}/${nextPost.slug}`}
+                className="term-cyan hover:term-bright transition-colors underline-offset-2 hover:underline"
+              >
+                Day {nextPost.dayNumber} — {nextPost.title}
+              </Link>
+              <span className="term-cyan ml-2">→</span>
+            </div>
+          )}
+          {!nextPost && dayNumber < totalDays && (
+            <div>
+              <span className="term-dim">[NEXT]   </span>
+              <span className="term-amber">Day {dayNumber + 1} — not yet available</span>
             </div>
           )}
           {dayNumber >= totalDays && (

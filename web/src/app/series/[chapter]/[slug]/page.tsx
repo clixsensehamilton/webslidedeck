@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getPost } from '@/lib/content'
+import { getPost, getNextPost } from '@/lib/content'
 import TerminalPost from '@/components/terminal/TerminalPost'
 
 interface Params {
@@ -14,7 +14,10 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
   const chapterNumber = match ? parseInt(match[1]) : NaN
   if (isNaN(chapterNumber)) notFound()
 
-  const post = await getPost(chapterNumber, slug)
+  const [post, nextPost] = await Promise.all([
+    getPost(chapterNumber, slug),
+    getNextPost(chapterNumber, slug),
+  ])
   if (!post || !post.available) notFound()
 
   return (
@@ -27,6 +30,7 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
       scenes={post.scenes}
       takeaway={post.takeaway}
       chapterSlug={String(chapterNumber)}
+      nextPost={nextPost ?? undefined}
     />
   )
 }

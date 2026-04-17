@@ -167,6 +167,39 @@ function findChapterDir(chapterNumber: number): string | null {
   return match ? path.join(CONTENT_ROOT, match) : null
 }
 
+export interface NextPostRef {
+  slug: string
+  chapterNumber: number
+  dayNumber: number
+  title: string
+}
+
+/**
+ * Get the next available post after currentSlug, searching same chapter then next chapter.
+ */
+export async function getNextPost(chapterNumber: number, currentSlug: string): Promise<NextPostRef | null> {
+  const posts = await getChapterPosts(chapterNumber)
+  const available = posts.filter(p => p.available)
+  const idx = available.findIndex(p => p.slug === currentSlug)
+
+  if (idx >= 0 && idx < available.length - 1) {
+    const next = available[idx + 1]
+    return { slug: next.slug, chapterNumber, dayNumber: next.frontmatter.day, title: next.frontmatter.post_title }
+  }
+
+  // Spill into the next chapter
+  if (chapterNumber < 6) {
+    const nextPosts = await getChapterPosts(chapterNumber + 1)
+    const nextAvailable = nextPosts.filter(p => p.available)
+    if (nextAvailable.length > 0) {
+      const next = nextAvailable[0]
+      return { slug: next.slug, chapterNumber: chapterNumber + 1, dayNumber: next.frontmatter.day, title: next.frontmatter.post_title }
+    }
+  }
+
+  return null
+}
+
 /**
  * Get a single post by chapter number + slug
  * Returns null if not found

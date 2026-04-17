@@ -30,12 +30,12 @@ aim_repo/
 │   │   │   ├── page.tsx             ← Landing → TerminalLanding
 │   │   │   ├── globals.css          ← Terminal CSS tokens + scanlines
 │   │   │   ├── not-found.tsx        ← 404 page
-│   │   │   ├── demo/page.tsx        ← Dev preview of day-1 terminal post
 │   │   │   └── series/
 │   │   │       ├── page.tsx         ← Chapter listing
 │   │   │       └── [chapter]/
 │   │   │           ├── page.tsx     ← Chapter detail (server component)
-│   │   │           └── ChapterDetailClient.tsx
+│   │   │           └── [slug]/
+│   │   │               └── page.tsx ← Individual post (TerminalPost)
 │   │   ├── components/
 │   │   │   ├── terminal/            ← All terminal UI components
 │   │   │   │   ├── TerminalLanding.tsx   ← Interactive terminal landing
@@ -78,14 +78,15 @@ aim_repo/
 
 ---
 
-## Current State (as of 2026-04-15)
+## Current State (as of 2026-04-17)
 
 | Area | Status |
 |------|--------|
 | Content (65 posts) | ✅ Complete |
 | Terminal landing page | ✅ Working — interactive CLI with commands |
 | Terminal post view | ✅ Working — boot + scenes + takeaway |
-| Chapter/series pages | 🔄 Old design — need terminal treatment |
+| Chapter/series pages | ✅ Done — terminal style, keyboard nav, real post routes |
+| Scene graphics | ✅ Content-driven — network/cascade/checklist/comparison modes |
 | Progress/save system | ❌ Not started — Bomber Man code idea |
 | Deployment | ❌ Not started |
 
@@ -123,6 +124,48 @@ Cursor: `.cursor` (CSS blink animation on `▋`)
 
 ---
 
+## Content-Driven Scene Generation — Non-Negotiable Rules
+
+Every terminal scene graphic must be derived from the **actual post content**, not invented from generic keywords or templates. Before touching any scene-rendering code, read the source markdown.
+
+### Before writing or modifying scene graphics
+
+1. **Read the post markdown first** — the file in `content/module-1/chapter-*/week-*/day-*.md`
+2. **Trace the story arc** — Hook → Scene 1 → Scene 2 → ... → Takeaway form a single coherent argument. Each scene builds on the last.
+3. **Identify what each scene is actually doing** — is it introducing a problem? showing a failure? listing outcomes? making a comparison? That determines the graphic mode.
+4. **Extract real entities from the text** — system names, people, concepts, stats. Never invent labels that don't appear in or logically follow from the content.
+5. **Check narrative continuity** — Scene 2's graphic should reference entities introduced in Scene 1. Scenes should feel like chapters of one story, not independent slides.
+
+### Graphic mode selection (`detectMode`)
+
+Choose mode based on what the scene is **arguing**, not just which keywords appear:
+
+| Mode | Use when the scene is... |
+|------|--------------------------|
+| `network` | Showing a landscape of systems/components and their relationships |
+| `cascade` | Describing a failure chain, incident, or cause-and-effect breakdown |
+| `checklist` | Listing objectives, outcomes, curriculum items, or "what you will learn" |
+| `comparison` | Contrasting two states, approaches, or perspectives |
+| `text` | Explaining a concept without a clear structural form |
+
+If a scene contains both infrastructure language AND failure language, `cascade` wins — failure is the story, infrastructure is the setting.
+
+### What bad looks like (never do this)
+
+- Showing `[ML PIPELINE] ─────▶ [CHOKE]` on a scene about IT professionals not understanding their stack — the label "CHOKE" is not the point, the *consequence* is
+- Displaying `ANOMALY_DET │ ML_PIPELINE` as the network when the content lists email filters, ticket routers, and anomaly monitors — use the actual systems from the text
+- Splitting a prose sentence into checklist items when the content is explaining a concept, not listing objectives
+- Right-padding cascade steps with `.padStart(50)` making them unreadable — always left-align incident logs
+
+### What good looks like
+
+- Scene 1 introduces EMAIL_FILTER, TICKET_ROUTER, ANOMALY_DETECT from the text → network shows those exact systems
+- Scene 2 says "chokes on a pipeline, hits a resource limit, broke downstream" → cascade log shows `ML_PIPELINE hits resource ceiling` → `processing queue backs up` → `on-call paged — no runbook for ML failure`
+- Scene 3 says "it's about developing X, ask Y, evaluate Z" → checklist shows those three clauses as objectives
+- Scene 4 contrasts "flying blind" vs "managing deliberately" → comparison table with those exact headers
+
+---
+
 ## Key Decisions
 
 | Decision | Choice | Reason |
@@ -146,19 +189,18 @@ npm run dev       # starts on :3000
 ```
 
 Routes:
-- `/`              → Interactive terminal landing
-- `/series`        → Chapter listing
-- `/series/chapter-1` → Chapter 1 posts
-- `/demo`          → Day-1 post terminal preview (dev only)
+- `/`                                   → Interactive terminal landing
+- `/series`                             → Chapter listing (keyboard nav)
+- `/series/chapter-1`                   → Chapter 1 post listing (keyboard nav)
+- `/series/chapter-1/day-01-mon-...`    → Individual post (TerminalPost)
 
 ---
 
 ## What To Do Next
 
-1. **Apply terminal style to `/series` and `/series/chapter-[n]` pages** — replace the old card UI with terminal-rendered chapter/post listings
-2. **Build progress/save system** — Bomber Man session code generator
-3. **Restore date-gating** — flip `isPostAvailable` back to real date check for production
-4. **Deploy** — Docker build from `web/`, mount `content/`
+1. **Build progress/save system** — Bomber Man session code generator (no auth, no DB)
+2. **Restore date-gating** — flip `isPostAvailable` back to real date check for production
+3. **Deploy** — Docker build from `web/`, mount `content/`
 
 ---
 

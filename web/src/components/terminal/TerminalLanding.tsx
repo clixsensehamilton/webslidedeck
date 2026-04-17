@@ -47,14 +47,12 @@ function getResponse(cmd: string): { lines: Line[]; action?: string } {
       lines: [
         { text: '' },
         { text: '  Initialising Module 1...', cls: 'term-dim' },
-        { text: '  Authenticating session...', cls: 'term-dim' },
+        { text: '  Locating Day 1...', cls: 'term-dim' },
         { text: '' },
-        { text: '  Access granted.', cls: 'term-cyan' },
-        { text: '' },
-        { text: '  Launching /series...', cls: 'term-green' },
+        { text: '  Day 1 is waiting. Loading Chapter 1...', cls: 'term-cyan' },
         { text: '' },
       ],
-      action: 'navigate:/series',
+      action: 'navigate:/series/chapter-1',
     }
   }
 
@@ -70,7 +68,7 @@ function getResponse(cmd: string): { lines: Line[]; action?: string } {
         })),
         { text: '  ' + '─'.repeat(46), cls: 'term-dim' },
         { text: '' },
-        { text: "  Run 'start' to begin or 'chapter 1' to jump in.", cls: 'term-dim' },
+        { text: "  Run 'start' to begin at Day 1, or 'chapter [1-6]' to jump to a chapter.", cls: 'term-dim' },
         { text: '' },
       ],
     }
@@ -109,8 +107,8 @@ function getResponse(cmd: string): { lines: Line[]; action?: string } {
         { text: '' },
         { text: '  65 posts on AI and machine learning.', cls: 'term-green' },
         { text: '  One per weekday. Three to five minutes each.', cls: 'term-green' },
-        { text: '  Built for people who keep systems running —', cls: 'term-green' },
-        { text: '  not for people who build the models.', cls: 'term-green' },
+        { text: '  Built for people who deploy, operate, and integrate AI —', cls: 'term-green' },
+        { text: '  not academic theory.', cls: 'term-green' },
         { text: '' },
         { text: '  No fluff. No hype. Operational literacy.', cls: 'term-amber' },
         { text: '' },
@@ -130,7 +128,7 @@ function getResponse(cmd: string): { lines: Line[]; action?: string } {
         { text: '  chapter [1-6]      Jump to a chapter', cls: 'term-green' },
         { text: '  about              What this series is', cls: 'term-green' },
         { text: '  clear              Clear the screen', cls: 'term-green' },
-        { text: '  exit               Leave (seriously?)', cls: 'term-green' },
+        { text: '  exit               Close this session', cls: 'term-green' },
         { text: '' },
       ],
     }
